@@ -8,7 +8,7 @@
                 console.log("A: " +a)
                 console.log("B: " + b)
                 var xmlHttp = new XMLHttpRequest();
-                xmlHttp.open( "GET", `/${operation}?a=${a}&b=${b}`, false ); // false for synchronous request
+                xmlHttp.open( "GET", `/${operation}?a=${a}&b=${b}`, false );
                 xmlHttp.send( null );
                 document.getElementById('resultValue').innerHTML = xmlHttp.responseText
             }
