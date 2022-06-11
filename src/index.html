@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <title>Calculator</title>
+        <script>
+            function operate(operation) {
+                const a = document.getElementById("first").value
+                const b = document.getElementById("second").value
+                console.log("A: " +a)
+                console.log("B: " + b)
+                var xmlHttp = new XMLHttpRequest();
+                xmlHttp.open( "GET", `/${operation}?a=${a}&b=${b}`, false ); // false for synchronous request
+                xmlHttp.send( null );
+                document.getElementById('resultValue').innerHTML = xmlHttp.responseText
+            }
+        </script>
+    </head>
+    <body>
+        <div class="output">
+            Calculator
+        </div>
+        <table border="1">
+            <tr>
+                <td>
+                    <input type="button" value="+" onclick="operate('add')" />
+                </td>
+                <td>
+                    <input type="button" value="-" onclick="operate('subtract')" />
+                </td>
+                <td>
+                    <input type="button" value="x" onclick="operate('multiply')" />
+                </td>
+                <td>
+                    <input type="button" value="/" onclick="operate('divide')" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="text" placeholder="First Number" id="first">
+                </td>
+                <td colspan="2">
+                    <input type="text" placeholder="Second Number" id="second">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <span>Result: </span>
+                    <span id="resultValue"></span>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>
